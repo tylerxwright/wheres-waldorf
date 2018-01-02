@@ -1,0 +1,7 @@
+#waldorf {
+    position: absolute;
+    width: 20px;
+    height: 28px;
+    z-index: 2147483647;
+    background-image: url('chrome-extension://__MSG_@@extension_id__/images/waldo.png');
+}
