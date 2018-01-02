@@ -53,4 +53,5 @@ chrome.runtime.onMessage.addListener(
         }
     });
 
+// Waldorf should only be added if the variable is set
 addWaldorf();

@@ -23,9 +23,9 @@
     "webpack": "^3.10.0"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "jquery": "^3.2.1",
-    "popper": "^1.0.1",
-    "toastr": "^2.1.4"
+    "bootstrap": "3.3.7",
+    "jquery": "3.2.1",
+    "popper": "1.0.1",
+    "toastr": "2.1.4"
   }
 }
