@@ -37,21 +37,7 @@ module.exports = {
                 test: /\.html$/,
                 loader: 'html-loader',
                 exclude: /node_modules/
-            },
-            { 
-                test: require.resolve('jquery'),
-                use: [{
-                    loader: 'expose-loader',
-                    options: 'jQuery'
-                },{
-                    loader: 'expose-loader',
-                    options: '$'
-                }]
-            },
-            { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "null-loader" },
-			{ test: /\.(woff|woff2)$/, loader: "null-loader" },
-			{ test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "null-loader" },
-			{ test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "null-loader" }
+            }
         ]
     },
     plugins: [

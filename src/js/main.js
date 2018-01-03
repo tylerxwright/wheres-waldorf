@@ -1,9 +1,6 @@
 require.context('../images', true, /^\.\//);
 require('../css/style.css');
 require('../../node_modules/toastr/build/toastr.css');
-require('../../node_modules/bootstrap/dist/css/bootstrap.min.css');
-require('bootstrap');
-import $ from "jquery";
 
 var toastr = require('toastr');
 
@@ -42,16 +39,21 @@ var addWaldorf = function() {
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-        console.log(request);
-        if(request.isVisible === "true") {
+        debugger;
+        if(request.isVisible === true) {
             addWaldorf();
             toastr.success('Waldorf\'s back!')
         } else {
             var waldorf = document.getElementById("waldorf");
-            document.body.removeChild(waldorf);
-            toastr.error('Waldorf left.')
+            if(waldorf !== null) {
+                document.body.removeChild(waldorf);
+                toastr.error('Waldorf left.')
+            }
         }
     });
 
-// Waldorf should only be added if the variable is set
-addWaldorf();
+chrome.storage.sync.get('waldorfVisible', function(response) {
+    if(response.waldorfVisible === true) {
+        addWaldorf();
+    }
+});

@@ -1,5 +1,5 @@
 function setButtonText(visible) {
-    if(visible === "true") {
+    if(visible === true) {
         document.getElementById("waldorf-hide-btn").innerHTML = "Hide Waldorf";
     } else {
         document.getElementById("waldorf-hide-btn").innerHTML = "Show Waldorf";
@@ -7,29 +7,26 @@ function setButtonText(visible) {
 }
 
 window.onload = function(e) {
-    var visible = localStorage.getItem('waldorfVisible');
-    if(visible === null) {
-        localStorage.setItem('waldorfVisible', "true");
-    }
-
-    setButtonText(visible);
-
-    document.getElementById("waldorf-hide-btn").onclick = function() {
-        var visible = localStorage.getItem('waldorfVisible');
-
-        if(visible === "true") {
-            visible = "false";
-        } else {
-            visible = "true";
+    chrome.storage.sync.get('waldorfVisible', function(response) {
+        if(response.waldorfVisible === null) {
+            chrome.storage.sync.set({'waldorfVisible': true});
         }
-        
-        localStorage.setItem('waldorfVisible', visible);
 
-        setButtonText(visible);
-        chrome.tabs.query({}, function(tabs) {
-			for(var i=0; i<tabs.length; i++) {
-				chrome.tabs.sendMessage(tabs[i].id, {isVisible: visible});
-			}
-        });
-    }
+        setButtonText(response.waldorfVisible);
+
+        document.getElementById("waldorf-hide-btn").onclick = function() {
+            chrome.storage.sync.get('waldorfVisible', function(response) {
+                var visible = !response.waldorfVisible;
+
+                chrome.storage.sync.set({'waldorfVisible': visible});
+
+                setButtonText(visible);
+                chrome.tabs.query({}, function(tabs) {
+                    for(var i=0; i<tabs.length; i++) {
+                        chrome.tabs.sendMessage(tabs[i].id, {isVisible: visible});
+                    }
+                });
+            });
+        }
+    });
 }

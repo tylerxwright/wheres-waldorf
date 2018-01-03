@@ -14,7 +14,7 @@
             "matches": ["http://*/*", "https://*/*"],
             "js": ["js/main.bundle.js"],
             "css": ["css/style.css"],
-            "run_at": "document_end"
+            "run_at": "document_idle"
         }
     ],
 
@@ -23,7 +23,12 @@
         "48": "images/icon_48.png",
         "128": "images/icon_128.png"
     },
+
     "web_accessible_resources": [
         "images/waldo.png"
+    ],
+
+    "permissions": [
+        "storage"
     ]
 }
