@@ -18,6 +18,11 @@
         }
     ],
 
+    "background": {
+        "scripts": ["js/eventPage.bundle.js"],
+        "persistent": false
+    },
+
     "icons": {
         "16": "images/icon_16.png",
         "48": "images/icon_48.png",

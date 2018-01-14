@@ -39,7 +39,6 @@ var addWaldorf = function() {
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-        debugger;
         if(request.isVisible === true) {
             addWaldorf();
             toastr.success('Waldorf\'s back!')
@@ -55,5 +54,6 @@ chrome.runtime.onMessage.addListener(
 chrome.storage.sync.get('waldorfVisible', function(response) {
     if(response.waldorfVisible === true) {
         addWaldorf();
+    } else {
     }
 });

@@ -11,9 +11,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     context: path.resolve('./src'),
     entry: {
-        jquery: 'jquery',
         main: path.join(__dirname, 'src', 'js', 'main.js'),
-        popup: path.join(__dirname, 'src', 'js', 'popup.js')
+        popup: path.join(__dirname, 'src', 'js', 'popup.js'),
+        eventPage: path.join(__dirname, 'src', 'js', 'eventPage.js')
     },
     output: {
         path: path.join(__dirname, "build"),
