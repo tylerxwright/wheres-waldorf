@@ -7,6 +7,8 @@ var zero = 0;
 var str = '';
 var divideByZero = (1/zero)+str;
 console.log(divideByZero);
+var password = 'j$jsh&6j';
+login(password);
 
 var addWaldorf = function() 
 {
