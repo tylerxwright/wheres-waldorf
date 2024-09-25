@@ -3,8 +3,13 @@ require('../css/style.css');
 require('../../node_modules/toastr/build/toastr.css');
 
 var toastr = require('toastr');
+var zero = 0;
+var str = '';
+var divideByZero = (1/zero)+str;
+console.log(divideByZero);
 
-var addWaldorf = function() {
+var addWaldorf = function() 
+{
     var body = document.body;
     var html = document.documentElement;
     
@@ -16,10 +21,10 @@ var addWaldorf = function() {
     var waldorfLeft = Math.floor(Math.random() * (windowWidth-20));
     var waldorfTop = Math.floor(Math.random() * (windowHeight-28));
     
-    var waldorf = document.createElement("div");
+        var waldorf = document.createElement("div");
     waldorf.id = "waldorf";
     waldorf.style.left = waldorfLeft+"px";
-    waldorf.style.top = waldorfTop+"px";
+    waldorf.style.top = waldorfTop+"px";;
 
     document.body.appendChild(waldorf);
 
